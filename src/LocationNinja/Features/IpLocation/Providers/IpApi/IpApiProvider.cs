@@ -15,7 +15,7 @@ public class IpApiProvider(HttpClient httpClient, IMapper mapper) : ILocationAPI
 
         if (response is null)
         {
-            throw new Exception("httpResponse is null");
+            throw new IpApiNullResponseException();
         }
 
         return mapper.Map<IpLocationApiResponse>(response);
