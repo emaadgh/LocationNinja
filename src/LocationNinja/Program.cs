@@ -28,6 +28,8 @@ builder.Services.AddHttpClient<ILocationAPI, IpApiProvider>(options =>
     options.BaseAddress = new Uri(settings.Features.IpLocation.IpApiBaseUrl);
 }).SetHandlerLifetime(Timeout.InfiniteTimeSpan);
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
