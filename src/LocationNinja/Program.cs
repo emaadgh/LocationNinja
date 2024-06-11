@@ -1,3 +1,7 @@
+using LocationNinja.Common;
+using LocationNinja.Common.Persistence;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +9,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.Configure<AppSettings>(builder.Configuration);
+
+var settings = builder.Configuration.Get<AppSettings>();
+ArgumentNullException.ThrowIfNull(settings, nameof(settings));
+
+builder.Services.AddDbContext<LocationNinjaDbContext>(options =>
+{
+    options.UseMongoDB(settings.MongoDatabase.Host, settings.MongoDatabase.DatabaseName);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
