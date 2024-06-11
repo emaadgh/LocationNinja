@@ -39,26 +39,14 @@ public class IpLocationService(ILocationAPI locationAPI,
 
         if (locationFromDB is not null)
         {
-            var ipLocationResponseFromDB = new IpLocationDetailedResponse(
-                ip,
-                locationFromDB.Latitude,
-                locationFromDB.Longitude,
-                locationFromDB.Country,
-                locationFromDB.Region,
-                locationFromDB.City);
+            var ipLocationResponseFromDB = _mapper.Map<IpLocationDetailedResponse>(locationFromDB);
 
             return ipLocationResponseFromDB;
         }
 
         IpLocationApiResponse locationFromAPI = await FetchLocationFromApi(ip, cancellationToken);
 
-        var ipLocationResponseFromAPI = new IpLocationDetailedResponse(
-                ip,
-                locationFromAPI.Latitude,
-                locationFromAPI.Longitude,
-                locationFromAPI.Country,
-                locationFromAPI.Region,
-                locationFromAPI.City);
+        var ipLocationResponseFromAPI = _mapper.Map<IpLocationDetailedResponse>(locationFromAPI);
 
         return ipLocationResponseFromAPI;
     }

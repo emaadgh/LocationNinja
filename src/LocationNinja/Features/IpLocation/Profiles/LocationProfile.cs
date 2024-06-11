@@ -10,8 +10,12 @@ public class LocationProfile : Profile
     public LocationProfile()
     {
         CreateMap<Location, IpLocationResponse>();
-        CreateMap<IpLocationApiResponse, Location>();
-        CreateMap<IpApiResponse, IpLocationApiResponse>();
+        CreateMap<Location, IpLocationDetailedResponse>();
+
+        CreateMap<IpLocationApiResponse, Location>();        
         CreateMap<IpLocationApiResponse, IpLocationResponse>();
+        CreateMap<IpLocationApiResponse, IpLocationDetailedResponse>();
+
+        CreateMap<IpApiResponse, IpLocationApiResponse>();
     }
 }
