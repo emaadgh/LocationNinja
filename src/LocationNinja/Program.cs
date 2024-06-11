@@ -1,5 +1,7 @@
 using LocationNinja.Common;
 using LocationNinja.Common.Persistence;
+using LocationNinja.Features.IpLocation;
+using LocationNinja.Features.IpLocation.Providers.IpApi;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +20,12 @@ builder.Services.AddDbContext<LocationNinjaDbContext>(options =>
 {
     options.UseMongoDB(settings.MongoDatabase.Host, settings.MongoDatabase.DatabaseName);
 });
+
+builder.Services.AddHttpClient<ILocationAPI, IpApiProvider>(options =>
+{
+    options.BaseAddress = new Uri(settings.Features.IpLocation.IpApiBaseUrl);
+}).SetHandlerLifetime(Timeout.InfiniteTimeSpan);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
