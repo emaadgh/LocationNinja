@@ -1,6 +1,6 @@
 ﻿using MongoDB.Bson;
 
-namespace LocationNinja.Features.IpLocation.Model;
+namespace LocationNinja.Features.IpLocation.Models;
 
 public sealed record IpLocationApiResponse(
     double Latitude,

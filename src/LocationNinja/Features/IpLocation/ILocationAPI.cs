@@ -1,4 +1,4 @@
-﻿using LocationNinja.Features.IpLocation.Model;
+﻿using LocationNinja.Features.IpLocation.Models;
 
 namespace LocationNinja.Features.IpLocation;
 
