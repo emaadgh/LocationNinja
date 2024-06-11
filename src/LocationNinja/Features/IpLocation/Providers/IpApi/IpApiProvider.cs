@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using LocationNinja.Common;
 using LocationNinja.Features.IpLocation.Models;
-using Microsoft.Extensions.Options;
 
 namespace LocationNinja.Features.IpLocation.Providers.IpApi;
 
