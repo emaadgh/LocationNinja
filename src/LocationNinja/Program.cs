@@ -11,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IpLocationService>();
+
 builder.Services.Configure<AppSettings>(builder.Configuration);
 
 var settings = builder.Configuration.Get<AppSettings>();
@@ -36,5 +38,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapIpLocationFeatureEndpoints();
 
 app.Run();
