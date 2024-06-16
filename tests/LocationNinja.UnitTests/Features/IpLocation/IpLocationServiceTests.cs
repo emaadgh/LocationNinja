@@ -25,8 +25,8 @@ public class IpLocationServiceTests
         _locationApiMock = new Mock<ILocationAPI>();
         _mapperMock = new Mock<IMapper>();
 
-        double latitude = 12;
-        double longitude = 12;
+        double latitude = 12.34;
+        double longitude = 56.78;
         string country = "test country";
         string region = "test region";
         string city = "test city";
@@ -47,7 +47,7 @@ public class IpLocationServiceTests
         };
 
         _expectedShortResponse = new IpLocationResponse(country, region, city);
-        _expectedDetailedResponse = new IpLocationDetailedResponse(_ip, latitude, longitude, country, region, city);
+        _expectedDetailedResponse = new IpLocationDetailedResponse(latitude, longitude, country, region, city);
     }
 
     [Fact]
