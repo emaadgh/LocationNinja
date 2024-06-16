@@ -7,7 +7,9 @@ public static class Endpoints
 {
     public static IEndpointRouteBuilder MapIpLocationFeatureEndpoints(this IEndpointRouteBuilder endpointRouteBuilder)
     {
-        endpointRouteBuilder.MapGet("/locations/{ip_address:required}",
+        var endpointGroup = endpointRouteBuilder.MapGroup("/locations");
+
+        endpointGroup.MapGet("/{ip_address:required}",
                                     async ([FromRoute(Name = "ip_address")] string ipAddress,
                                     IIpLocationService ipLocationService,
                                     CancellationToken cancellationToken) =>
@@ -16,7 +18,7 @@ public static class Endpoints
                                     }).Validator<string>()
                                       .WithTags(EndpointSchema.LocationTag);
 
-        endpointRouteBuilder.MapGet("/locations/{ip_address:required}/detailed",
+        endpointGroup.MapGet("/{ip_address:required}/detailed",
                                     async ([FromRoute(Name = "ip_address")] string ipAddress,
                                     IIpLocationService ipLocationService,
                                     CancellationToken cancellationToken) =>
