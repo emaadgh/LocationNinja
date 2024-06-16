@@ -8,7 +8,7 @@ namespace LocationNinja.Features.IpLocation;
 
 public class IpLocationService(ILocationAPI locationAPI,
                                IMapper mapper,
-                               LocationNinjaDbContext locationNinjaDbContext)
+                               LocationNinjaDbContext locationNinjaDbContext) : IIpLocationService
 {
     public async Task<IpLocationResponse> GetLocation(string ip, CancellationToken cancellationToken = default)
     {
@@ -24,7 +24,7 @@ public class IpLocationService(ILocationAPI locationAPI,
         return mapper.Map<IpLocationResponse>(locationFromAPI);
     }
 
-    public async Task<IpLocationDetailedResponse> GetDetailedLocation(string ip, CancellationToken cancellationToken)
+    public async Task<IpLocationDetailedResponse> GetDetailedLocation(string ip, CancellationToken cancellationToken = default)
     {
         Location? locationFromDB = await FetchLocationFromDB(ip, cancellationToken);
 

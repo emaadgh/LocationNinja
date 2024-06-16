@@ -2,6 +2,7 @@ using FluentValidation;
 using LocationNinja.Common;
 using LocationNinja.Common.Persistence;
 using LocationNinja.Features.IpLocation;
+using LocationNinja.Features.IpLocation.Endpoints;
 using LocationNinja.Features.IpLocation.Providers.IpApi;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IpLocationService>();
+builder.Services.AddScoped<IIpLocationService, IpLocationService>();
 
 builder.Services.Configure<AppSettings>(builder.Configuration);
 
@@ -47,3 +48,5 @@ app.UseHttpsRedirection();
 app.MapIpLocationFeatureEndpoints();
 
 app.Run();
+
+public partial class Program { }

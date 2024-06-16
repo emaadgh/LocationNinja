@@ -8,7 +8,7 @@ using System.Net.Http.Json;
 using FluentAssertions;
 using LocationNinja.Features.IpLocation.Domain;
 
-namespace LocationNinja.UnitTests.Features.Provider;
+namespace LocationNinja.UnitTests.Features.IpLocation.Provider;
 
 public class IpApiProviderTests
 {

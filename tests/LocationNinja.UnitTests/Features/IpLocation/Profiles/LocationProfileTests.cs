@@ -6,7 +6,7 @@ using LocationNinja.Features.IpLocation.Providers.IpApi;
 using LocationNinja.Features.IpLocation;
 using LocationNinja.Features.IpLocation.Profiles;
 
-namespace LocationNinja.UnitTests.Features.Profiles;
+namespace LocationNinja.UnitTests.Features.IpLocation.Profiles;
 
 public class LocationProfileTests
 {
