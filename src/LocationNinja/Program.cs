@@ -1,3 +1,4 @@
+using FluentValidation;
 using LocationNinja.Common;
 using LocationNinja.Common.Persistence;
 using LocationNinja.Features.IpLocation;
@@ -29,6 +30,8 @@ builder.Services.AddHttpClient<ILocationAPI, IpApiProvider>(options =>
 }).SetHandlerLifetime(Timeout.InfiniteTimeSpan);
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
