@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:  
+  locationninja:
+    image: ${DOCKER_REGISTRY-}locationninja
+    build:
+      context: .
+      dockerfile: src/LocationNinja/Dockerfile
+  mongo:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
