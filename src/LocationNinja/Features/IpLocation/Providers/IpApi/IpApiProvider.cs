@@ -7,9 +7,8 @@ public class IpApiProvider(HttpClient httpClient, IMapper mapper) : ILocationAPI
 {
     public async Task<IpLocationApiResponse> GetAsync(string ip, CancellationToken cancellationToken = default)
     {
-        var url = $"?query={ip}";
 
-        var response = await httpClient.GetFromJsonAsync<IpApiResponse>(url, cancellationToken);
+        var response = await httpClient.GetFromJsonAsync<IpApiResponse>(ip, cancellationToken);
 
         if (response is null)
         {
