@@ -2,38 +2,37 @@
 using FluentValidation;
 using System.Net;
 
-namespace LocationNinja.Features.IpLocation.Filters
+namespace LocationNinja.Features.IpLocation.Filters;
+
+public class EndpointValidatorFilter<T>(IValidator<T> validator) : IEndpointFilter
 {
-    public class EndpointValidatorFilter<T>(IValidator<T> validator) : IEndpointFilter
+    private readonly IValidator<T> _validator = validator;
+
+    public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
     {
-        private readonly IValidator<T> _validator = validator;
+        T? inputData = context.GetArgument<T>(0);
 
-        public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
+        if (inputData is not null)
         {
-            T? inputData = context.GetArgument<T>(0);
+            var validationResult = await _validator.ValidateAsync(inputData);
 
-            if (inputData is not null)
+            if (!validationResult.IsValid)
             {
-                var validationResult = await _validator.ValidateAsync(inputData);
-
-                if (!validationResult.IsValid)
-                {
-                    return Results.ValidationProblem(validationResult.ToDictionary(),
-                                                     statusCode: (int)HttpStatusCode.BadRequest);
-                }
+                return Results.ValidationProblem(validationResult.ToDictionary(),
+                                                 statusCode: (int)HttpStatusCode.BadRequest);
             }
-
-            return await next.Invoke(context);
         }
+
+        return await next.Invoke(context);
     }
+}
 
-    public static class ValidatorExtensions
+public static class ValidatorExtensions
+{
+    public static RouteHandlerBuilder Validator<T>(this RouteHandlerBuilder builder)
+        where T : class
     {
-        public static RouteHandlerBuilder Validator<T>(this RouteHandlerBuilder builder)
-            where T : class
-        {
-            builder.AddEndpointFilter<EndpointValidatorFilter<T>>();
-            return builder;
-        }
+        builder.AddEndpointFilter<EndpointValidatorFilter<T>>();
+        return builder;
     }
 }

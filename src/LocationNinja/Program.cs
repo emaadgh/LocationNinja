@@ -8,8 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var domainAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -30,9 +31,9 @@ builder.Services.AddHttpClient<ILocationAPI, IpApiProvider>(options =>
     options.BaseAddress = new Uri(settings.Features.IpLocation.IpApiBaseUrl);
 }).SetHandlerLifetime(Timeout.InfiniteTimeSpan);
 
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(domainAssemblies);
 
-builder.Services.AddValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddValidatorsFromAssemblies(domainAssemblies);
 
 var app = builder.Build();
 
