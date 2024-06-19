@@ -30,7 +30,7 @@ LocationNinja is a robust service built using vertical slice architecture design
 - **Provider**: Third-party services that provide data for location.
 - **Cache**: MongoDB is used to store previously queried data to improve performance.
 
-<img src="https://github.com/emaadgh/LocationNinja/assets/10380342/9498b5ed-f026-4bce-9794-aac9138821cc" width="984" height="471">
+<img src="https://github.com/emaadgh/LocationNinja/assets/10380342/9498b5ed-f026-4bce-9794-aac9138821cc" width="885.6" height="423.9">
 
 ## Getting Started
 
