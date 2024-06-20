@@ -8,6 +8,7 @@ LocationNinja is a robust service built using vertical slice architecture design
 - **IP to Location**: Converts IP addresses to physical locations using third-party data.
 - **Caching**: Utilize MongoDB for improved performance.
 - **Dockerizing**: Containerize the LocationNinja using DockerFile and Docker Compose for simplified deployment and management.
+- **Minimal APIs**: Leveraging ASP.NET Core's minimal APIs for creating lightweight HTTP APIs with minimal dependencies.
 
 ## Tools and Technologies
 - **.NET 8.0**: The latest version of the .NET framework.
