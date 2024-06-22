@@ -11,7 +11,7 @@ LocationNinja is a robust service built using vertical slice architecture design
 - **Minimal APIs**: Leveraging ASP.NET Core's minimal APIs for creating lightweight HTTP APIs with minimal dependencies.
 
 ## Tools and Technologies
-- **.NET 8.0**: The latest version of the .NET framework.
+- **.NET 8.0**: The latest version of the .NET.
 - **ASP.NET Core**: For building the web API.
 - **AutoMapper**: For object-object mapping.
 - **FluentValidation**: For model validation.
