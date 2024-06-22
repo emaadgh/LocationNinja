@@ -11,13 +11,12 @@ LocationNinja is a robust service built using vertical slice architecture design
 - **Minimal APIs**: Leveraging ASP.NET Core's minimal APIs for creating lightweight HTTP APIs with minimal dependencies.
 
 ## Tools and Technologies
-- **.NET 8.0**: The latest version of the .NET.
-- **ASP.NET Core**: For building the web API.
+- **ASP.NET Core and .NET 8**
 - **AutoMapper**: For object-object mapping.
 - **FluentValidation**: For model validation.
 - **MongoDB**: For caching previously queried data.
 - **Entity Framework Core**: For database interaction.
-- **Swashbuckle**: For generating Swagger API documentation.
+- **OpenAPI**: For generating Swagger API documentation.
 - **Docker**: For containerizing the application.
 - **Xunit**: For unit testing.
 - **Moq**: For mocking dependencies in tests.
