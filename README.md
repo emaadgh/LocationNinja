@@ -108,3 +108,4 @@ Contributions are welcome! If you'd like to enhance LocationNinja, you can submi
 ## License
 
 This project is licensed under the MIT License.
+Inspired by lessons from [ThisIsNabi's](https://github.com/thisisnabi/) live coding sessions.
