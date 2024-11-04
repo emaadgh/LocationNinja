@@ -7,12 +7,12 @@ public class LocationProfile : Profile
         CreateMap<Location, IpLocationResponse>();
         CreateMap<Location, IpLocationDetailedResponse>();
 
-        CreateMap<IpLocationApiResponse, Location>()
+        CreateMap<IpLocationProviderResponse, Location>()
             .ForMember(dest => dest.Id, opt => opt.Ignore())
             .ForMember(dest => dest.Ip, opt => opt.Ignore());
-        CreateMap<IpLocationApiResponse, IpLocationResponse>();
-        CreateMap<IpLocationApiResponse, IpLocationDetailedResponse>();
+        CreateMap<IpLocationProviderResponse, IpLocationResponse>();
+        CreateMap<IpLocationProviderResponse, IpLocationDetailedResponse>();
 
-        CreateMap<IpApiResponse, IpLocationApiResponse>();
+        CreateMap<IpApiResponse, IpLocationProviderResponse>();
     }
 }

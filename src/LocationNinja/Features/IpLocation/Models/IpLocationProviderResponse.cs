@@ -1,6 +1,6 @@
 ﻿namespace LocationNinja.Features.IpLocation.Models;
 
-public sealed record IpLocationApiResponse(
+public sealed record IpLocationProviderResponse(
     double Latitude,
     double Longitude,
     string Country,

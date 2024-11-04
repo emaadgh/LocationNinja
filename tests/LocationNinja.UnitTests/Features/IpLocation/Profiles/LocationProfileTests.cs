@@ -88,7 +88,7 @@ public class LocationProfileTests
     public void Map_IpLocationApiResponseToLocation_ShouldSucceed()
     {
         // Arrange
-        var apiResponse = new IpLocationApiResponse(
+        var apiResponse = new IpLocationProviderResponse(
             _latitude,
             _longitude,
             _country,
@@ -115,7 +115,7 @@ public class LocationProfileTests
     public void Map_IpLocationApiResponseToIpLocationResponse_ShouldSucceed()
     {
         // Arrange
-        var apiResponse = new IpLocationApiResponse(
+        var apiResponse = new IpLocationProviderResponse(
             _latitude,
             _longitude,
             _country,
@@ -136,7 +136,7 @@ public class LocationProfileTests
     public void Map_IpLocationApiResponseToIpLocationDetailedResponse_ShouldSucceed()
     {
         // Arrange
-        var apiResponse = new IpLocationApiResponse(
+        var apiResponse = new IpLocationProviderResponse(
             _latitude,
             _longitude,
             _country,
@@ -169,10 +169,10 @@ public class LocationProfileTests
         };
 
         // Act
-        var response = _mapper.Map<IpLocationApiResponse>(apiResponse);
+        var response = _mapper.Map<IpLocationProviderResponse>(apiResponse);
 
         // Assert
-        response.Should().BeEquivalentTo(new IpLocationApiResponse(
+        response.Should().BeEquivalentTo(new IpLocationProviderResponse(
             _latitude,
             _longitude,
             _country,

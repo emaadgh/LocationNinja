@@ -15,7 +15,7 @@ public class IpLocationServiceTests
     private readonly Mock<IMapper> _mapperMock;
 
     private readonly string _ip = "11.11.11.11";
-    private readonly IpLocationApiResponse _apiResponse;
+    private readonly IpLocationProviderResponse _apiResponse;
     private readonly Location _location;
     private readonly IpLocationResponse _expectedShortResponse;
     private readonly IpLocationDetailedResponse _expectedDetailedResponse;
@@ -31,7 +31,7 @@ public class IpLocationServiceTests
         string region = "test region";
         string city = "test city";
 
-        _apiResponse = new IpLocationApiResponse(
+        _apiResponse = new IpLocationProviderResponse(
             latitude,
             longitude,
             country,

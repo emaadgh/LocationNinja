@@ -2,7 +2,7 @@
 
 public class IpApiProvider(HttpClient httpClient, IMapper mapper) : ILocationProvider
 {
-    public async Task<IpLocationApiResponse> GetAsync(string ip, CancellationToken cancellationToken = default)
+    public async Task<IpLocationProviderResponse> GetAsync(string ip, CancellationToken cancellationToken = default)
     {
         var response = await httpClient.GetFromJsonAsync<IpApiResponse>(ip, cancellationToken);
 
@@ -11,6 +11,6 @@ public class IpApiProvider(HttpClient httpClient, IMapper mapper) : ILocationPro
             throw new IpApiNullResponseException();
         }
 
-        return mapper.Map<IpLocationApiResponse>(response);
+        return mapper.Map<IpLocationProviderResponse>(response);
     }
 }

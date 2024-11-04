@@ -17,7 +17,7 @@ public class IpLocationService(ILocationProvider locationAPI,
             return _mapper.Map<IpLocationResponse>(locationFromDB);
         }
 
-        IpLocationApiResponse locationFromAPI = await FetchLocationFromApi(ip, cancellationToken);
+        IpLocationProviderResponse locationFromAPI = await FetchLocationFromApi(ip, cancellationToken);
 
         return _mapper.Map<IpLocationResponse>(locationFromAPI);
     }
@@ -31,7 +31,7 @@ public class IpLocationService(ILocationProvider locationAPI,
             return _mapper.Map<IpLocationDetailedResponse>(locationFromDB);
         }
 
-        IpLocationApiResponse locationFromAPI = await FetchLocationFromApi(ip, cancellationToken);
+        IpLocationProviderResponse locationFromAPI = await FetchLocationFromApi(ip, cancellationToken);
 
         return _mapper.Map<IpLocationDetailedResponse>(locationFromAPI);
     }
@@ -41,7 +41,7 @@ public class IpLocationService(ILocationProvider locationAPI,
         return await _locationNinjaDbContext.Locations.FirstOrDefaultAsync(l => l.Ip == ip, cancellationToken);
     }
 
-    private async Task<IpLocationApiResponse> FetchLocationFromApi(string ip, CancellationToken cancellationToken)
+    private async Task<IpLocationProviderResponse> FetchLocationFromApi(string ip, CancellationToken cancellationToken)
     {
         var locationFromAPI = await _locationApi.GetAsync(ip, cancellationToken);
 

@@ -2,5 +2,5 @@
 
 public interface ILocationProvider
 {
-    Task<IpLocationApiResponse> GetAsync(string ip, CancellationToken cancellationToken = default);
+    Task<IpLocationProviderResponse> GetAsync(string ip, CancellationToken cancellationToken = default);
 }

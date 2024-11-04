@@ -44,7 +44,7 @@ public class IpApiProviderTests
             City = "test city"
         };
 
-        var expectedResponse = new IpLocationApiResponse(
+        var expectedResponse = new IpLocationProviderResponse(
             12.34,
             56.78,
             "test country",
@@ -62,7 +62,7 @@ public class IpApiProviderTests
                 Content = JsonContent.Create(apiResponse)
             });
 
-        _mapperMock.Setup(m => m.Map<IpLocationApiResponse>(It.IsAny<IpApiResponse>()))
+        _mapperMock.Setup(m => m.Map<IpLocationProviderResponse>(It.IsAny<IpApiResponse>()))
                    .Returns(expectedResponse);
 
         // Act
