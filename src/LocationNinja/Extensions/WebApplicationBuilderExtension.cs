@@ -19,12 +19,5 @@ public static class WebApplicationBuilderExtension
         builder.Services.AddAutoMapper(domainAssemblies);
 
         builder.Services.AddValidatorsFromAssemblies(domainAssemblies);
-
-        builder.Services.AddScoped<IIpLocationService, IpLocationService>();
-
-        builder.Services.AddHttpClient<ILocationAPI, IpApiProvider>(options =>
-        {
-            options.BaseAddress = new Uri(settings.Features.IpLocation.IpApiBaseUrl);
-        }).SetHandlerLifetime(Timeout.InfiniteTimeSpan);
     }
 }
