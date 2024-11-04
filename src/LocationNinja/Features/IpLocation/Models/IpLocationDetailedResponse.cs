@@ -1,4 +1,4 @@
-﻿namespace LocationNinja.Features.IpLocation;
+﻿namespace LocationNinja.Features.IpLocation.Models;
 
 public sealed record IpLocationDetailedResponse(
     double Latitude,

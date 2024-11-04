@@ -4,6 +4,7 @@ using AutoMapper;
 using FluentAssertions;
 using LocationNinja.Common.Persistence;
 using LocationNinja.Features.IpLocation;
+using LocationNinja.Features.IpLocation.Models;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;

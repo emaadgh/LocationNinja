@@ -1,4 +1,4 @@
-﻿namespace LocationNinja.Features.IpLocation;
+﻿namespace LocationNinja.Features.IpLocation.Models;
 
 public sealed record IpLocationResponse(
     string Country,

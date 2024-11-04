@@ -3,7 +3,6 @@ using FluentAssertions;
 using LocationNinja.Features.IpLocation.Domain;
 using LocationNinja.Features.IpLocation.Models;
 using LocationNinja.Features.IpLocation.Providers.IpApi;
-using LocationNinja.Features.IpLocation;
 using LocationNinja.Features.IpLocation.Profiles;
 
 namespace LocationNinja.UnitTests.Features.IpLocation.Profiles;
