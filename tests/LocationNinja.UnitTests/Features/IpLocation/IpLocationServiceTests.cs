@@ -11,7 +11,7 @@ namespace LocationNinja.UnitTests.Features.IpLocation;
 
 public class IpLocationServiceTests
 {
-    private readonly Mock<ILocationAPI> _locationApiMock;
+    private readonly Mock<ILocationProvider> _locationApiMock;
     private readonly Mock<IMapper> _mapperMock;
 
     private readonly string _ip = "11.11.11.11";
@@ -22,7 +22,7 @@ public class IpLocationServiceTests
 
     public IpLocationServiceTests()
     {
-        _locationApiMock = new Mock<ILocationAPI>();
+        _locationApiMock = new Mock<ILocationProvider>();
         _mapperMock = new Mock<IMapper>();
 
         double latitude = 12.34;

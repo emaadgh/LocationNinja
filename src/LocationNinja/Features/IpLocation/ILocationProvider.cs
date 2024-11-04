@@ -1,6 +1,6 @@
 ﻿namespace LocationNinja.Features.IpLocation;
 
-public interface ILocationAPI
+public interface ILocationProvider
 {
     Task<IpLocationApiResponse> GetAsync(string ip, CancellationToken cancellationToken = default);
 }

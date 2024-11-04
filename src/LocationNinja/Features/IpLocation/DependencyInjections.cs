@@ -9,7 +9,7 @@ public static class DependencyInjections
 
         builder.Services.AddScoped<IIpLocationService, IpLocationService>();
 
-        builder.Services.AddHttpClient<ILocationAPI, IpApiProvider>(options =>
+        builder.Services.AddHttpClient<ILocationProvider, IpApiProvider>(options =>
         {
             options.BaseAddress = new Uri(settings.Features.IpLocation.IpApiBaseUrl);
         }).SetHandlerLifetime(Timeout.InfiniteTimeSpan);

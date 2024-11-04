@@ -1,10 +1,10 @@
 ﻿namespace LocationNinja.Features.IpLocation;
 
-public class IpLocationService(ILocationAPI locationAPI,
+public class IpLocationService(ILocationProvider locationAPI,
                                IMapper mapper,
                                LocationNinjaDbContext locationNinjaDbContext) : IIpLocationService
 {
-    private readonly ILocationAPI _locationApi = locationAPI;
+    private readonly ILocationProvider _locationApi = locationAPI;
     private readonly IMapper _mapper = mapper;
     private readonly LocationNinjaDbContext _locationNinjaDbContext = locationNinjaDbContext;
 
