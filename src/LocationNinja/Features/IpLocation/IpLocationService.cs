@@ -1,10 +1,4 @@
-﻿using AutoMapper;
-using LocationNinja.Common.Persistence;
-using LocationNinja.Features.IpLocation.Domain;
-using LocationNinja.Features.IpLocation.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace LocationNinja.Features.IpLocation;
+﻿namespace LocationNinja.Features.IpLocation;
 
 public class IpLocationService(ILocationAPI locationAPI,
                                IMapper mapper,

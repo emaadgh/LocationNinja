@@ -1,6 +1,4 @@
-﻿namespace LocationNinja.Common;
-
-public partial class Features
+﻿public partial class Features
 {
     public IpLocationSettings IpLocation { get; set; } = null!;
 }

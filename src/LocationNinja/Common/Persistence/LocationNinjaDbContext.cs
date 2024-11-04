@@ -1,6 +1,4 @@
-﻿using LocationNinja.Features.IpLocation.Domain;
-using Microsoft.EntityFrameworkCore;
-using MongoDB.EntityFrameworkCore.Extensions;
+﻿using MongoDB.EntityFrameworkCore.Extensions;
 
 namespace LocationNinja.Common.Persistence;
 public class LocationNinjaDbContext : DbContext

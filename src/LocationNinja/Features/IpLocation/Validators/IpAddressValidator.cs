@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace LocationNinja.Features.IpLocation.Validators;
+﻿namespace LocationNinja.Features.IpLocation.Validators;
 
 public class IpAddressValidator : AbstractValidator<string>
 {

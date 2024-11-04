@@ -1,6 +1,4 @@
-﻿namespace LocationNinja.Common;
-
-public class AppSettings
+﻿public class AppSettings
 {
     public MongoDatabase MongoDatabase { get; set; } = null!;
     public Features Features { get; set; } = null!;

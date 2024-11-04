@@ -1,7 +1,4 @@
-﻿using LocationNinja.Features.IpLocation.Filters;
-using Microsoft.AspNetCore.Mvc;
-
-namespace LocationNinja.Features.IpLocation.Endpoints;
+﻿namespace LocationNinja.Features.IpLocation.Endpoints;
 
 public static class Endpoints
 {

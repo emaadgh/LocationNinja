@@ -1,9 +1,7 @@
-﻿
-namespace LocationNinja.Features.IpLocation
+﻿namespace LocationNinja.Features.IpLocation;
+
+public interface IIpLocationService
 {
-    public interface IIpLocationService
-    {
-        Task<IpLocationResponse> GetLocation(string ip, CancellationToken cancellationToken = default);
-        Task<IpLocationDetailedResponse> GetDetailedLocation(string ip, CancellationToken cancellationToken = default);
-    }
+    Task<IpLocationResponse> GetLocation(string ip, CancellationToken cancellationToken = default);
+    Task<IpLocationDetailedResponse> GetDetailedLocation(string ip, CancellationToken cancellationToken = default);
 }

@@ -1,6 +1,3 @@
-using LocationNinja.Extensions;
-using LocationNinja.Features.IpLocation.Endpoints;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();

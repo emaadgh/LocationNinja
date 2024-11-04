@@ -1,6 +1,4 @@
-﻿using LocationNinja.Features.IpLocation.Models;
-
-namespace LocationNinja.Features.IpLocation;
+﻿namespace LocationNinja.Features.IpLocation;
 
 public interface ILocationAPI
 {

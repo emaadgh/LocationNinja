@@ -1,11 +1,4 @@
-﻿using FluentValidation;
-using LocationNinja.Common;
-using LocationNinja.Common.Persistence;
-using LocationNinja.Features.IpLocation.Providers.IpApi;
-using LocationNinja.Features.IpLocation;
-using Microsoft.EntityFrameworkCore;
-
-namespace LocationNinja.Extensions;
+﻿namespace LocationNinja.Extensions;
 
 public static class WebApplicationBuilderExtension
 {

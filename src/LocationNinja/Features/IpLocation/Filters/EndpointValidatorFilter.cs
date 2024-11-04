@@ -1,8 +1,4 @@
-﻿
-using FluentValidation;
-using System.Net;
-
-namespace LocationNinja.Features.IpLocation.Filters;
+﻿namespace LocationNinja.Features.IpLocation.Filters;
 
 public class EndpointValidatorFilter<T>(IValidator<T> validator) : IEndpointFilter
 {
