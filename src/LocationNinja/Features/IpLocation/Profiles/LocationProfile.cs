@@ -13,6 +13,9 @@ public class LocationProfile : Profile
         CreateMap<IpLocationProviderResponse, IpLocationResponse>();
         CreateMap<IpLocationProviderResponse, IpLocationDetailedResponse>();
 
+        CreateMap<IpLocationResponse, ResolvedLocationMessage>();
+        CreateMap<IpLocationDetailedResponse, ResolvedDetailedLocationMessage>();
+
         CreateMap<IpApiResponse, IpLocationProviderResponse>();
     }
 }
