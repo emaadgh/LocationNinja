@@ -4,7 +4,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.AddApplicationServices();
-builder.AddIpLocationFeaature();
+builder.AddIpLocationFeature();
 
 var app = builder.Build();
 
