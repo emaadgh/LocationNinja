@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>LocationNinja Integration Messages package</Title>
+    <Description>LocationNinja Integration Messages package</Description>
+    <RepositoryUrl>https://github.com/emaadgh/LocationNinja</RepositoryUrl>
+    <Version>1.0.2</Version>
+  </PropertyGroup>
+
+</Project>
