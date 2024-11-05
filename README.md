@@ -2,16 +2,19 @@
 <img src="https://github.com/emaadgh/LocationNinja/assets/10380342/25581344-41c6-400a-a601-65926d23c0ce" width="150" height="150">
 
 ## Overview
-LocationNinja is a robust service built using vertical slice architecture designed to handle various location-based queries. It supports converting IP addresses to physical locations and can be easily integrated into your web applications. The system uses data from third-party providers and caches results in MongoDB for optimized performance.
+LocationNinja is a robust service built using vertical slice architecture, designed to handle various location-based queries. It supports converting IP addresses to physical locations and can be easily integrated into your web applications. The system uses data from third-party providers and caches results in MongoDB for optimized performance. Additionally, LocationNinja integrates with messaging systems, supporting both synchronous API requests and asynchronous integration messages.
 
 ## Features
 - **IP to Location**: Converts IP addresses to physical locations using third-party data.
+- **Integration with RabbitMQ**: Supports asynchronous messaging through RabbitMQ and MassTransit for handling location queries and responses across multiple services.
 - **Caching**: Utilize MongoDB for improved performance.
 - **Dockerizing**: Containerize the LocationNinja using DockerFile and Docker Compose for simplified deployment and management.
 - **Minimal APIs**: Leveraging ASP.NET Core's minimal APIs for creating lightweight HTTP APIs with minimal dependencies.
 
+
 ## Tools and Technologies
 - **ASP.NET Core and .NET 8**
+- **MassTransit with RabbitMQ**: For asynchronous message handling.
 - **AutoMapper**: For object-object mapping.
 - **FluentValidation**: For model validation.
 - **MongoDB**: For caching previously queried data.
@@ -86,6 +89,11 @@ Here's an example of how you can configure your `appsettings.json` file:
   "MongoDatabase": {
     "Host": "mongodb://localhost:27017",
     "DatabaseName": "locationNinja"
+  },
+  "BrokerOptions": {
+    "Host": "localhost",
+    "UserName": "guest",
+    "Password": "guest"
   },
   "Features": {
     "IpLocation": {
