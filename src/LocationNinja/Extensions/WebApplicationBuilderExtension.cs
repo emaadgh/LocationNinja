@@ -1,4 +1,6 @@
-﻿namespace LocationNinja.Extensions;
+﻿using System.Reflection;
+
+namespace LocationNinja.Extensions;
 
 public static class WebApplicationBuilderExtension
 {
@@ -19,5 +21,22 @@ public static class WebApplicationBuilderExtension
         builder.Services.AddAutoMapper(domainAssemblies);
 
         builder.Services.AddValidatorsFromAssemblies(domainAssemblies);
+
+        builder.Services.AddMassTransit(configure =>
+        {
+            configure.AddConsumers(Assembly.GetExecutingAssembly());
+            configure.UsingRabbitMq((context, cfg) =>
+            {
+                cfg.Host(settings.BrokerOptions.Host, hostConfigure =>
+                {
+                    hostConfigure.Username(settings.BrokerOptions.Username);
+                    hostConfigure.Password(settings.BrokerOptions.Password);
+                });
+
+                cfg.UseRawJsonSerializer();
+
+                cfg.ConfigureEndpoints(context);
+            });
+        });
     }
 }
