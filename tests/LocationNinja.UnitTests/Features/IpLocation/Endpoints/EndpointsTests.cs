@@ -13,10 +13,8 @@ using Moq;
 
 namespace LocationNinja.UnitTests.Features.IpLocation.Endpoints;
 
-public class IpLocationEndpointsTests : IClassFixture<WebApplicationFactory<Program>>
+public class IpLocationEndpointsTests
 {
-    private readonly WebApplicationFactory<Program> _factory;
-
     private readonly string _validIp = "11.11.11.11";
     private readonly string _invalidIp = "invalid ip";
     private readonly double _latitude = 12.34;
@@ -25,9 +23,11 @@ public class IpLocationEndpointsTests : IClassFixture<WebApplicationFactory<Prog
     private readonly string _region = "test region";
     private readonly string _city = "test city";
 
-    public IpLocationEndpointsTests(WebApplicationFactory<Program> factory)
+    [Fact]
+    public async Task GetLocation_ShouldReturnBadRequest_WhenIpAddressIsInvalid()
     {
-        _factory = factory.WithWebHostBuilder(builder =>
+        // Arrange
+        using var factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
         {
             builder.ConfigureTestServices(services =>
             {
@@ -39,24 +39,11 @@ public class IpLocationEndpointsTests : IClassFixture<WebApplicationFactory<Prog
                         _region,
                         _city));
 
-                ipLocationServiceMock.Setup(service => service.GetDetailedLocation(It.IsAny<string>(), It.IsAny<CancellationToken>()))
-                    .ReturnsAsync(new IpLocationDetailedResponse(
-                        _latitude,
-                        _longitude,
-                        _country,
-                        _region,
-                        _city));
-
                 services.AddSingleton(ipLocationServiceMock.Object);
             });
         });
-    }
-
-    [Fact]
-    public async Task GetLocation_ShouldReturnBadRequest_WhenIpAddressIsInvalid()
-    {
-        // Arrange
-        var client = _factory.CreateClient();
+        
+        var client = factory.CreateClient();
 
         // Act
         var response = await client.GetAsync($"/locations/{_invalidIp}");
@@ -69,7 +56,23 @@ public class IpLocationEndpointsTests : IClassFixture<WebApplicationFactory<Prog
     public async Task GetLocation_ShouldReturnOk_WhenIpAddressIsValid()
     {
         // Arrange
-        var client = _factory.CreateClient();
+        using var factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
+        {
+            builder.ConfigureTestServices(services =>
+            {
+                var ipLocationServiceMock = new Mock<IIpLocationService>();
+
+                ipLocationServiceMock.Setup(service => service.GetLocation(It.IsAny<string>(), It.IsAny<CancellationToken>()))
+                    .ReturnsAsync(new IpLocationResponse(
+                        _country,
+                        _region,
+                        _city));
+
+                services.AddSingleton(ipLocationServiceMock.Object);
+            });
+        });
+
+        var client = factory.CreateClient();
 
         // Act
         var response = await client.GetAsync($"/locations/{_validIp}");
@@ -88,7 +91,25 @@ public class IpLocationEndpointsTests : IClassFixture<WebApplicationFactory<Prog
     public async Task GetDetailedLocation_ShouldReturnBadRequest_WhenIpAddressIsInvalid()
     {
         // Arrange
-        var client = _factory.CreateClient();
+        using var factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
+        {
+            builder.ConfigureTestServices(services =>
+            {
+                var ipLocationServiceMock = new Mock<IIpLocationService>();
+
+                ipLocationServiceMock.Setup(service => service.GetDetailedLocation(It.IsAny<string>(), It.IsAny<CancellationToken>()))
+                    .ReturnsAsync(new IpLocationDetailedResponse(
+                        _latitude,
+                        _longitude,
+                        _country,
+                        _region,
+                        _city));
+
+                services.AddSingleton(ipLocationServiceMock.Object);
+            });
+        });
+
+        var client = factory.CreateClient();
 
         // Act
         var response = await client.GetAsync($"/locations/{_invalidIp}/detailed");
@@ -101,7 +122,25 @@ public class IpLocationEndpointsTests : IClassFixture<WebApplicationFactory<Prog
     public async Task GetDetailedLocation_ShouldReturnOk_WhenIpAddressIsValid()
     {
         // Arrange
-        var client = _factory.CreateClient();
+        using var factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
+        {
+            builder.ConfigureTestServices(services =>
+            {
+                var ipLocationServiceMock = new Mock<IIpLocationService>();
+
+                ipLocationServiceMock.Setup(service => service.GetDetailedLocation(It.IsAny<string>(), It.IsAny<CancellationToken>()))
+                    .ReturnsAsync(new IpLocationDetailedResponse(
+                        _latitude,
+                        _longitude,
+                        _country,
+                        _region,
+                        _city));
+
+                services.AddSingleton(ipLocationServiceMock.Object);
+            });
+        });
+
+        var client = factory.CreateClient();
 
         // Act
         var response = await client.GetAsync($"/locations/{_validIp}/detailed");
