@@ -1,4 +1,4 @@
-﻿namespace LocationNinja.Features.IpLocation.Filters;
+﻿namespace LocationNinja.Common.Filters;
 
 public class EndpointValidatorFilter<T>(IValidator<T> validator) : IEndpointFilter
 {

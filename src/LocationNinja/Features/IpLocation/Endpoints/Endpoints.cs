@@ -1,4 +1,6 @@
-﻿namespace LocationNinja.Features.IpLocation.Endpoints;
+﻿using LocationNinja.Common.Filters;
+
+namespace LocationNinja.Features.IpLocation.Endpoints;
 
 public static class Endpoints
 {

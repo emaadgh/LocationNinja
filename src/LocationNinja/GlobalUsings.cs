@@ -4,7 +4,7 @@ global using LocationNinja.Extensions;
 global using LocationNinja.Features.IpLocation;
 global using LocationNinja.Features.IpLocation.Domain;
 global using LocationNinja.Features.IpLocation.Endpoints;
-global using LocationNinja.Features.IpLocation.Filters;
+global using LocationNinja.Common.Filters;
 global using LocationNinja.Features.IpLocation.Models;
 global using LocationNinja.Features.IpLocation.Providers.IpApi;
 // Built-in
