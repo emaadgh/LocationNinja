@@ -18,7 +18,9 @@ public static class WebApplicationBuilderExtension
             options.UseMongoDB(settings.MongoDatabase.Host, settings.MongoDatabase.DatabaseName);
         });
 
-        builder.Services.AddAutoMapper(domainAssemblies);
+        builder.Services.AddAutoMapper(cfg =>
+        {
+        }, domainAssemblies);
 
         builder.Services.AddValidatorsFromAssemblies(domainAssemblies);
 

@@ -2,8 +2,9 @@
 using FluentAssertions;
 using LocationNinja.Features.IpLocation.Domain;
 using LocationNinja.Features.IpLocation.Models;
-using LocationNinja.Features.IpLocation.Providers.IpApi;
 using LocationNinja.Features.IpLocation.Profiles;
+using LocationNinja.Features.IpLocation.Providers.IpApi;
+using Microsoft.Extensions.Logging;
 
 namespace LocationNinja.UnitTests.Features.IpLocation.Profiles;
 
@@ -20,10 +21,12 @@ public class LocationProfileTests
 
     public LocationProfileTests()
     {
+        using var loggerFactory = LoggerFactory.Create(builder => { });
+
         var config = new MapperConfiguration(cfg =>
         {
             cfg.AddProfile<LocationProfile>();
-        });
+        }, loggerFactory);
 
         _mapper = config.CreateMapper();
     }
